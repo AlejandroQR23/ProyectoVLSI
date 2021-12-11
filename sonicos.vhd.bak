@@ -1,0 +1,169 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity sonicos is
+	port
+	(
+		clk : in std_logic;
+		inicio : in std_logic; -- boton de inicio
+		sensor_disp : out std_logic;
+		sensor_eco : in std_logic;
+
+		segmento_unid : out std_logic_vector(7 downto 0);
+		segmento_dec : out std_logic_vector(7 downto 0);
+		segmento_cent : out std_logic_vector(7 downto 0);
+		
+		cm: out unsigned(7 downto 0)
+	);
+end sonicos;
+
+architecture behavioral of sonicos is
+
+	signal cuenta: unsigned(16 downto 0) := (others => '0');
+	signal centimetros: unsigned(15 downto 0) := (others => '0');
+	signal centimetros_unid: unsigned(3 downto 0) := (others => '0');
+	signal centimetros_dece: unsigned(3 downto 0) := (others => '0');
+	signal centimetros_cent: unsigned(3 downto 0) := (others => '0');
+	
+	signal sal_unid: unsigned(3 downto 0) := (others => '0');
+	signal sal_dece: unsigned(3 downto 0) := (others => '0');
+	signal sal_cent: unsigned(3 downto 0) := (others => '0');
+	signal sal_cm: unsigned(7 downto 0) := (others => '0');
+	
+	signal eco_pasado: std_logic := '0';
+	signal eco_sinc: std_logic := '0';
+	signal eco_nsinc: std_logic := '0';
+	signal espera: std_logic := '0';
+	
+begin 
+	
+	Trigger: process(clk, inicio)
+	begin
+		if inicio = '0' then
+		
+			if rising_edge(clk) then
+				if espera = '0' then
+					if cuenta = 500 then
+						sensor_disp <= '0';
+						espera <= '1';
+						cuenta <= (others => '0');
+					else 
+						sensor_disp <= '1';
+						cuenta <= cuenta + 1;
+					end if;
+				elsif eco_pasado = '0' and eco_sinc = '1' then
+					cuenta <= (others => '0');
+					centimetros <= (others => '0');
+					centimetros_unid <= (others => '0');
+					centimetros_dece <= (others => '0');
+					centimetros_cent <= (others => '0');
+				elsif eco_pasado = '1' and eco_sinc = '0' then
+					sal_unid <= centimetros_unid;
+					sal_dece <= centimetros_dece;
+					sal_cent <= centimetros_cent;
+					sal_cm <= sal_unid + (sal_dece*10) + (sal_cent*100);
+				elsif cuenta = 2900-1 then
+					if centimetros_unid = 9 then
+						centimetros_unid <= (others => '0');
+						if centimetros_dece = 9 then
+							centimetros_dece <= (others => '0');
+							centimetros_cent <= centimetros_cent + 1;
+						else 
+							centimetros_dece <= centimetros_dece + 1;
+						end if;
+					else
+						centimetros_unid <= centimetros_unid + 1;
+					end if;
+					centimetros <= centimetros + 1;
+					cuenta <= (others => '0');
+					if centimetros = 3448 then
+						espera <= '0';
+					end if;
+				else
+					cuenta <= cuenta + 1;
+				end if;
+				
+				eco_pasado <= eco_sinc;
+				eco_sinc <= eco_nsinc;
+				eco_nsinc <= sensor_eco;
+				
+			end if;
+		end if;
+	end process;
+	
+	cm <= sal_cm;
+	
+	DecodificadorUnid: process(sal_unid)
+	begin
+		if sal_unid = X"0" then segmento_unid <= X"81";
+		elsif sal_unid = X"1" then segmento_unid <= X"F3";
+		elsif sal_unid = X"2" then segmento_unid <= X"49";
+		elsif sal_unid = X"3" then segmento_unid <= X"61";
+		elsif sal_unid = X"4" then segmento_unid <= X"33";
+		elsif sal_unid = X"5" then segmento_unid <= X"25";
+		elsif sal_unid = X"6" then segmento_unid <= X"05";
+		elsif sal_unid = X"7" then segmento_unid <= X"F1";
+		elsif sal_unid = X"8" then segmento_unid <= X"01";
+		elsif sal_unid = X"9" then segmento_unid <= X"21";
+		elsif sal_unid = X"a" then segmento_unid <= X"11";
+		elsif sal_unid = X"b" then segmento_unid <= X"07";
+		elsif sal_unid = X"c" then segmento_unid <= X"8D";
+		elsif sal_unid = X"d" then segmento_unid <= X"43";
+		elsif sal_unid = X"e" then segmento_unid <= X"0D";
+		else 
+			segmento_unid <= X"1D";
+		end if;
+	end process;
+	
+	DecodificadorDec: process(sal_dece)
+	begin
+		if sal_dece = X"0" then segmento_dec <= X"81";
+		elsif sal_dece = X"1" then segmento_dec <= X"F3";
+		elsif sal_dece = X"2" then segmento_dec <= X"49";
+		elsif sal_dece = X"3" then segmento_dec <= X"61";
+		elsif sal_dece = X"4" then segmento_dec <= X"33";
+		elsif sal_dece = X"5" then segmento_dec <= X"25";
+		elsif sal_dece = X"6" then segmento_dec <= X"05";
+		elsif sal_dece = X"7" then segmento_dec <= X"F1";
+		elsif sal_dece = X"8" then segmento_dec <= X"01";
+		elsif sal_dece = X"9" then segmento_dec <= X"21";
+		elsif sal_dece = X"a" then segmento_dec <= X"11";
+		elsif sal_dece = X"b" then segmento_dec <= X"07";
+		elsif sal_dece = X"c" then segmento_dec <= X"8D";
+		elsif sal_dece = X"d" then segmento_dec <= X"43";
+		elsif sal_dece = X"e" then segmento_dec <= X"0D";
+		else 
+			segmento_dec <= X"1D";
+		end if;
+	end process;
+	
+	DecodificadorCent: process(sal_cent)
+	begin
+		if sal_cent = X"0" then segmento_cent <= X"81";
+		elsif sal_cent = X"1" then segmento_cent <= X"F3";
+		elsif sal_cent = X"2" then segmento_cent <= X"49";
+		elsif sal_cent = X"3" then segmento_cent <= X"61";
+		elsif sal_cent = X"4" then segmento_cent <= X"33";
+		elsif sal_cent = X"5" then segmento_cent <= X"25";
+		elsif sal_cent = X"6" then segmento_cent <= X"05";
+		elsif sal_cent = X"7" then segmento_cent <= X"F1";
+		elsif sal_cent = X"8" then segmento_cent <= X"01";
+		elsif sal_cent = X"9" then segmento_cent <= X"21";
+		elsif sal_cent = X"a" then segmento_cent <= X"11";
+		elsif sal_cent = X"b" then segmento_cent <= X"07";
+		elsif sal_cent = X"c" then segmento_cent <= X"8D";
+		elsif sal_cent = X"d" then segmento_cent <= X"43";
+		elsif sal_cent = X"e" then segmento_cent <= X"0D";
+		else 
+			segmento_cent <= X"1D";
+		end if;
+	end process;
+	
+end behavioral;
+				
+				
+				
+			
+			
+			

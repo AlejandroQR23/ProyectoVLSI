@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led_green",
+					"strict" : false
+				},
+				{
+					"name" : "leftTrigger",
+					"strict" : false
+				},
+				{
+					"name" : "rightTrigger",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "leftEcho",
+					"strict" : false
+				},
+				{
+					"name" : "rightEcho",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

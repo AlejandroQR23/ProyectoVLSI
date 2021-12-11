@@ -1,0 +1,85 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity Leds is
+	Port(
+		clk : in std_logic;
+		led_red : out std_logic;
+		led_green : out std_logic;
+		led_blue : out std_logic
+	);
+end Leds;
+
+architecture Behavioral of Leds is
+	
+	component divisor is
+		Generic (N : integer := 24);
+		Port ( clk : in std_logic;
+				 div_clk : out std_logic );
+	end component;
+	
+	component PWM is
+		Port ( Reloj : in std_logic;
+				 D : in std_logic_vector(7 downto 0);
+				 S : out std_logic );
+	end component;
+	
+	signal relojPWM : std_logic;
+	signal relojCiclo : std_logic;
+	
+	-- Blanco inicial
+	signal a1 : std_logic_vector(7 downto 0) := X"FF"; -- R
+	signal a2 : std_logic_vector(7 downto 0) := X"FF"; -- G
+	signal a3 : std_logic_vector(7 downto 0) := X"FF"; -- B
+	
+begin
+	D1: divisor generic map (10) port map (clk, relojPWM);
+	D2: divisor generic map (23) port map (clk, relojCiclo);
+	P1: PWM port map (relojPWM, a1, led_red);
+	P2: PWM port map (relojPWM, a2, led_green);
+	P3: PWM port map (relojPWM, a3, led_blue);
+	
+	process (relojCiclo)
+		variable contador : std_logic_vector (2 downto 0) := "000";
+	begin
+		if relojCiclo = '1' and relojCiclo'event then
+			contador := contador + 1;
+			if contador = "001" then
+				-- Rojo
+				a1 <= X"FF";
+				a2 <= X"00";
+				a3 <= X"00";
+			elsif contador = "010" then
+				-- Anaranjado
+				a1 <= X"FF";
+				a2 <= X"A4";
+				a3 <= X"20";
+			elsif contador = "011" then
+				-- Amarillo
+				a1 <= X"FF";
+				a2 <= X"FF";
+				a3 <= X"00";
+			elsif contador = "100" then
+				-- Verde
+				a1 <= X"00";
+				a2 <= X"FF";
+				a3 <= X"00";
+			elsif contador = "101" then
+				-- Morado
+				a1 <= X"4B";
+				a2 <= X"00";
+				a3 <= X"82";
+			elsif contador = "110" then
+				-- Morado... o algo asi
+				a1 <= X"8F";
+				a2 <= X"00";
+				a3 <= X"FF";
+			else
+				contador := "000";
+			end if;
+		end if;
+	end process;
+	
+end Behavioral;
