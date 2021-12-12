@@ -2,12 +2,12 @@
 clk => sonicos:S1.clk
 clk => sonicos:S2.clk
 clk => RGB:L1.clk
-led_red << RGB:L1.led_red
-led_green << RGB:L1.led_green
-led_blue << RGB:L1.led_blue
-leftTrigger << sonicos:S1.sensor_disp
+led_red <= RGB:L1.led_red
+led_green <= RGB:L1.led_green
+led_blue <= RGB:L1.led_blue
+leftTrigger <= sonicos:S1.sensor_disp
 leftEcho => sonicos:S1.sensor_eco
-rightTrigger << sonicos:S2.sensor_disp
+rightTrigger <= sonicos:S2.sensor_disp
 rightEcho => sonicos:S2.sensor_eco
 
 
@@ -319,6 +319,7 @@ cm[7] <= sal_cm[7].DB_MAX_OUTPUT_PORT_TYPE
 
 |PuenteElevadizo|RGB:L1
 clk => divisor:D1.clk
+clk => divisor:D2.clk
 color[0] => Equal0.IN63
 color[0] => Equal1.IN63
 color[1] => Equal0.IN62
@@ -418,6 +419,38 @@ clk => cuenta[25].CLK
 clk => cuenta[26].CLK
 clk => cuenta[27].CLK
 div_clk <= cuenta[10].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PuenteElevadizo|RGB:L1|Divisor:D2
+clk => cuenta[0].CLK
+clk => cuenta[1].CLK
+clk => cuenta[2].CLK
+clk => cuenta[3].CLK
+clk => cuenta[4].CLK
+clk => cuenta[5].CLK
+clk => cuenta[6].CLK
+clk => cuenta[7].CLK
+clk => cuenta[8].CLK
+clk => cuenta[9].CLK
+clk => cuenta[10].CLK
+clk => cuenta[11].CLK
+clk => cuenta[12].CLK
+clk => cuenta[13].CLK
+clk => cuenta[14].CLK
+clk => cuenta[15].CLK
+clk => cuenta[16].CLK
+clk => cuenta[17].CLK
+clk => cuenta[18].CLK
+clk => cuenta[19].CLK
+clk => cuenta[20].CLK
+clk => cuenta[21].CLK
+clk => cuenta[22].CLK
+clk => cuenta[23].CLK
+clk => cuenta[24].CLK
+clk => cuenta[25].CLK
+clk => cuenta[26].CLK
+clk => cuenta[27].CLK
+div_clk <= cuenta[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |PuenteElevadizo|RGB:L1|PWM:P1

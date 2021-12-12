@@ -50,14 +50,14 @@ architecture behavioral of PuenteElevadizo is
 	signal distanciaSalida  : unsigned(7 downto 0);
 	signal inicio				: std_logic := '0';
 	
-	signal senal : integer := 2;
+	signal senal : integer;
 	
-	constant distanciaDeteccion : unsigned(7 downto 0) := X"02";	-- distancia a la que se detecta un objeto = 2cm
+	constant distanciaDeteccion : unsigned(7 downto 0) := X"0A";	-- distancia a la que se detecta un objeto = 2cm
 	
 begin
 
 	S1 : sonicos port map(clk, inicio, leftTrigger, leftEcho, distanciaEntrada);	 -- sensor de entrada
-	S2 : sonicos port map(clk, inicio, rightTrigger, rightEcho, distanciaEntrada); -- sensor de salida
+	S2 : sonicos port map(clk, inicio, rightTrigger, rightEcho, distanciaSalida); -- sensor de salida
 	
 	L1 : RGB port map(clk, senal, led_red, led_green, led_blue);
 	
@@ -66,16 +66,18 @@ begin
 	begin
 		if distanciaEntrada <= distanciaDeteccion then
 			senal <= 1;
+		else
+			senal <= 2;
 		end if;
 	end process;
 	
 	-- Detecta salida de un objeto
-	saleObjeto : process(distanciaSalida)
-	begin
-		if distanciaSalida <= distanciaDeteccion then
-			senal <= 0;
-		end if;
-	end process;
+--	saleObjeto : process(distanciaSalida)
+--	begin
+--		if distanciaSalida < distanciaDeteccion then
+--			senal <= 0;
+--		end if;
+--	end process;
 
 	
 end behavioral;

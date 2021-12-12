@@ -91,15 +91,3 @@ begin
 	cm <= sal_cm;
 	
 end behavioral;
-				
-				
-				
-			
-			
-			
-				
-				
-				
-			
-			
-			

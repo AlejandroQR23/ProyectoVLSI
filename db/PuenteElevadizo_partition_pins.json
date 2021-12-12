@@ -4,7 +4,15 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "led_red",
+					"strict" : false
+				},
+				{
 					"name" : "led_green",
+					"strict" : false
+				},
+				{
+					"name" : "led_blue",
 					"strict" : false
 				},
 				{
