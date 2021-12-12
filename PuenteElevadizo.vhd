@@ -6,6 +6,8 @@ entity PuenteElevadizo is
 	port(
 		clk : in std_logic;
 		
+		buzz   : out std_logic;
+		
 		-- Led RGB
 		led_red : out std_logic;
 		led_green : out std_logic;
@@ -46,6 +48,16 @@ architecture behavioral of PuenteElevadizo is
 		);
 	end component;
 	
+	-- Piezo Buzzer 
+	component Buzzer is
+		port
+		(
+			clk    : in std_logic;
+			inicio : in integer;
+			buzz   : out std_logic
+		);
+	end component;
+	
 	signal distanciaEntrada : unsigned(7 downto 0);
 	signal distanciaSalida  : unsigned(7 downto 0);
 	signal inicio				: std_logic := '0';
@@ -55,6 +67,8 @@ architecture behavioral of PuenteElevadizo is
 	constant distanciaDeteccion : unsigned(7 downto 0) := X"0A";	-- distancia a la que se detecta un objeto = 2cm
 	
 begin
+
+	B1 : Buzzer port map(clk, senal, buzz);
 
 	S1 : sonicos port map(clk, inicio, leftTrigger, leftEcho, distanciaEntrada);	 -- sensor de entrada
 	S2 : sonicos port map(clk, inicio, rightTrigger, rightEcho, distanciaSalida); -- sensor de salida

@@ -1,7 +1,9 @@
 |PuenteElevadizo
+clk => Buzzer:B1.clk
 clk => sonicos:S1.clk
 clk => sonicos:S2.clk
 clk => RGB:L1.clk
+buzz <= Buzzer:B1.buzz
 led_red <= RGB:L1.led_red
 led_green <= RGB:L1.led_green
 led_blue <= RGB:L1.led_blue
@@ -9,6 +11,75 @@ leftTrigger <= sonicos:S1.sensor_disp
 leftEcho => sonicos:S1.sensor_eco
 rightTrigger <= sonicos:S2.sensor_disp
 rightEcho => sonicos:S2.sensor_eco
+
+
+|PuenteElevadizo|Buzzer:B1
+clk => a.CLK
+clk => i[0].CLK
+clk => i[1].CLK
+clk => i[2].CLK
+clk => i[3].CLK
+clk => i[4].CLK
+clk => i[5].CLK
+clk => i[6].CLK
+clk => i[7].CLK
+clk => i[8].CLK
+clk => i[9].CLK
+clk => i[10].CLK
+clk => i[11].CLK
+clk => i[12].CLK
+clk => i[13].CLK
+clk => i[14].CLK
+clk => i[15].CLK
+clk => i[16].CLK
+clk => i[17].CLK
+clk => i[18].CLK
+clk => i[19].CLK
+clk => i[20].CLK
+clk => i[21].CLK
+clk => i[22].CLK
+clk => i[23].CLK
+clk => i[24].CLK
+clk => i[25].CLK
+clk => i[26].CLK
+clk => i[27].CLK
+clk => i[28].CLK
+clk => i[29].CLK
+clk => i[30].CLK
+clk => i[31].CLK
+inicio[0] => Equal0.IN31
+inicio[1] => Equal0.IN30
+inicio[2] => Equal0.IN29
+inicio[3] => Equal0.IN28
+inicio[4] => Equal0.IN27
+inicio[5] => Equal0.IN26
+inicio[6] => Equal0.IN25
+inicio[7] => Equal0.IN24
+inicio[8] => Equal0.IN23
+inicio[9] => Equal0.IN22
+inicio[10] => Equal0.IN21
+inicio[11] => Equal0.IN20
+inicio[12] => Equal0.IN19
+inicio[13] => Equal0.IN18
+inicio[14] => Equal0.IN17
+inicio[15] => Equal0.IN16
+inicio[16] => Equal0.IN15
+inicio[17] => Equal0.IN14
+inicio[18] => Equal0.IN13
+inicio[19] => Equal0.IN12
+inicio[20] => Equal0.IN11
+inicio[21] => Equal0.IN10
+inicio[22] => Equal0.IN9
+inicio[23] => Equal0.IN8
+inicio[24] => Equal0.IN7
+inicio[25] => Equal0.IN6
+inicio[26] => Equal0.IN5
+inicio[27] => Equal0.IN4
+inicio[28] => Equal0.IN3
+inicio[29] => Equal0.IN2
+inicio[30] => Equal0.IN1
+inicio[31] => Equal0.IN0
+buzz <= a.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |PuenteElevadizo|sonicos:S1
