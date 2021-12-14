@@ -48,7 +48,7 @@ begin
 		
 		if inicio = 1 then
 			a <= cont_la(16);
-		elsif inicio = 2 then
+		elsif inicio = 0 then
 			a <= cont_do(17);
 		else
 			a <= '0';
