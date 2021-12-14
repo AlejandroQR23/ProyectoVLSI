@@ -3,13 +3,18 @@ clk => Buzzer:B1.clk
 clk => sonicos:S1.clk
 clk => sonicos:S2.clk
 clk => RGB:L1.clk
-buzz << Buzzer:B1.buzz
-led_red << RGB:L1.led_red
-led_green << RGB:L1.led_green
-led_blue << RGB:L1.led_blue
-leftTrigger << sonicos:S1.sensor_disp
+clk => Divisor:D1.clk
+buzz <= Buzzer:B1.buzz
+mot[0] <= Motor:M1.MOT[0]
+mot[1] <= Motor:M1.MOT[1]
+mot[2] <= Motor:M1.MOT[2]
+mot[3] <= Motor:M1.MOT[3]
+led_red <= RGB:L1.led_red
+led_green <= RGB:L1.led_green
+led_blue <= RGB:L1.led_blue
+leftTrigger <= sonicos:S1.sensor_disp
 leftEcho => sonicos:S1.sensor_eco
-rightTrigger << sonicos:S2.sensor_disp
+rightTrigger <= sonicos:S2.sensor_disp
 rightEcho => sonicos:S2.sensor_eco
 
 
@@ -50,9 +55,9 @@ clk => cont_la[14].CLK
 clk => cont_la[15].CLK
 clk => cont_la[16].CLK
 inicio[0] => Equal2.IN31
-inicio[0] => Equal3.IN30
+inicio[0] => Equal3.IN31
 inicio[1] => Equal2.IN30
-inicio[1] => Equal3.IN31
+inicio[1] => Equal3.IN30
 inicio[2] => Equal2.IN29
 inicio[2] => Equal3.IN29
 inicio[3] => Equal2.IN28
@@ -619,5 +624,79 @@ D[5] => LessThan0.IN11
 D[6] => LessThan0.IN10
 D[7] => LessThan0.IN9
 S <= S~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PuenteElevadizo|Divisor:D1
+clk => cuenta[0].CLK
+clk => cuenta[1].CLK
+clk => cuenta[2].CLK
+clk => cuenta[3].CLK
+clk => cuenta[4].CLK
+clk => cuenta[5].CLK
+clk => cuenta[6].CLK
+clk => cuenta[7].CLK
+clk => cuenta[8].CLK
+clk => cuenta[9].CLK
+clk => cuenta[10].CLK
+clk => cuenta[11].CLK
+clk => cuenta[12].CLK
+clk => cuenta[13].CLK
+clk => cuenta[14].CLK
+clk => cuenta[15].CLK
+clk => cuenta[16].CLK
+clk => cuenta[17].CLK
+clk => cuenta[18].CLK
+clk => cuenta[19].CLK
+clk => cuenta[20].CLK
+clk => cuenta[21].CLK
+clk => cuenta[22].CLK
+clk => cuenta[23].CLK
+clk => cuenta[24].CLK
+clk => cuenta[25].CLK
+clk => cuenta[26].CLK
+clk => cuenta[27].CLK
+div_clk <= cuenta[17].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PuenteElevadizo|Motor:M1
+paso => pres_S~1.DATAIN
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+rst => pres_S~3.DATAIN
+FH[0] => Equal0.IN3
+FH[0] => Equal1.IN3
+FH[0] => Equal2.IN3
+FH[0] => Equal3.IN3
+FH[1] => Equal0.IN2
+FH[1] => Equal1.IN2
+FH[1] => Equal2.IN2
+FH[1] => Equal3.IN2
+MOT[0] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+MOT[1] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+MOT[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+MOT[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
 
 

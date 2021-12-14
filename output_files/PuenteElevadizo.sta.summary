@@ -3,32 +3,32 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -3.073
-TNS   : -319.584
+Slack : -2.654
+TNS   : -286.890
 
 Type  : Slow 1200mV 85C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -2.003
-TNS   : -2.003
+Slack : -1.935
+TNS   : -1.935
 
 Type  : Slow 1200mV 85C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -1.880
-TNS   : -12.332
+Slack : -1.906
+TNS   : -9.902
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.342
+Slack : 0.343
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.404
+Slack : 0.488
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 2.082
+Slack : 2.091
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -171.000
+TNS   : -153.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
@@ -39,32 +39,32 @@ Slack : -1.000
 TNS   : -1.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -2.715
-TNS   : -272.319
+Slack : -2.347
+TNS   : -245.010
 
 Type  : Slow 1200mV 0C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -1.698
-TNS   : -1.698
+Slack : -1.645
+TNS   : -1.645
 
 Type  : Slow 1200mV 0C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -1.557
-TNS   : -9.773
+Slack : -1.588
+TNS   : -7.636
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.296
+Slack : 0.297
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.407
+Slack : 0.455
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 1.893
+Slack : 1.902
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -171.000
+TNS   : -153.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
@@ -75,32 +75,32 @@ Slack : -1.000
 TNS   : -1.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.288
-TNS   : -108.362
+Slack : -1.061
+TNS   : -99.610
 
 Type  : Fast 1200mV 0C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -0.714
-TNS   : -0.714
+Slack : -0.678
+TNS   : -0.678
 
 Type  : Fast 1200mV 0C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -0.601
-TNS   : -2.139
+Slack : -0.598
+TNS   : -1.535
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.178
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.196
+Slack : 0.204
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 1.157
+Slack : 1.164
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -183.001
+TNS   : -163.744
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
