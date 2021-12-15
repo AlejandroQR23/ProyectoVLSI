@@ -1,0 +1,9 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity Display is
+	port(
+			segmento_unid : out std_logic_vector(7 downto 0);
+		segmento_dec : out std_logic_vector(7 downto 0);
+	);

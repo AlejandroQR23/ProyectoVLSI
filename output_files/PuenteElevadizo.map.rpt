@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PuenteElevadizo
-Mon Dec 13 23:18:43 2021
+Tue Dec 14 21:37:06 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec 13 23:18:43 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 14 21:37:06 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PuenteElevadizo                             ;
 ; Top-level Entity Name              ; PuenteElevadizo                             ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Total combinational functions  ; 263                                         ;
 ;     Dedicated logic registers      ; 162                                         ;
 ; Total registers                    ; 162                                         ;
-; Total pins                         ; 13                                          ;
+; Total pins                         ; 29                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -188,6 +188,7 @@ https://fpgasoftware.intel.com/eula.
 ; RGB.vhd                          ; yes             ; User VHDL File  ; C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd             ;         ;
 ; Buzzer.vhd                       ; yes             ; User VHDL File  ; C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Buzzer.vhd          ;         ;
 ; Motor.vhd                        ; yes             ; User VHDL File  ; C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Motor.vhd           ;         ;
+; Display.vhd                      ; yes             ; User VHDL File  ; C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Display.vhd         ;         ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 
 
@@ -212,14 +213,14 @@ https://fpgasoftware.intel.com/eula.
 ;     -- Dedicated logic registers            ; 162       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 13        ;
+; I/O pins                                    ; 29        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 150       ;
-; Total fan-out                               ; 1175      ;
-; Average fan-out                             ; 2.61      ;
+; Total fan-out                               ; 1191      ;
+; Average fan-out                             ; 2.47      ;
 +---------------------------------------------+-----------+
 
 
@@ -228,7 +229,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name     ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-----------------+--------------+
-; |PuenteElevadizo           ; 263 (3)             ; 162 (0)                   ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |PuenteElevadizo                   ; PuenteElevadizo ; work         ;
+; |PuenteElevadizo           ; 263 (3)             ; 162 (0)                   ; 0           ; 0            ; 0       ; 0         ; 29   ; 0            ; |PuenteElevadizo                   ; PuenteElevadizo ; work         ;
 ;    |Buzzer:B1|             ; 36 (36)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Buzzer:B1         ; Buzzer          ; work         ;
 ;    |Divisor:D1|            ; 17 (17)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Divisor:D1        ; Divisor         ; work         ;
 ;    |RGB:L1|                ; 55 (0)              ; 20 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1            ; RGB             ; work         ;
@@ -269,6 +270,9 @@ Encoding Type:  One-Hot
 ; Register name                           ; Reason for Removal                     ;
 +-----------------------------------------+----------------------------------------+
 ; rst                                     ; Stuck at GND due to stuck port data_in ;
+; decenas[0]                              ; Stuck at VCC due to stuck port aload   ;
+; unidades[0..31]                         ; Stuck at VCC due to stuck port aload   ;
+; decenas[1..31]                          ; Stuck at VCC due to stuck port aload   ;
 ; RGB:L1|PWM:P2|cuenta[7]                 ; Merged with RGB:L1|PWM:P1|cuenta[7]    ;
 ; RGB:L1|PWM:P3|cuenta[7]                 ; Merged with RGB:L1|PWM:P1|cuenta[7]    ;
 ; RGB:L1|PWM:P2|cuenta[6]                 ; Merged with RGB:L1|PWM:P1|cuenta[6]    ;
@@ -288,6 +292,7 @@ Encoding Type:  One-Hot
 ; RGB:L1|a1[1..7]                         ; Merged with RGB:L1|a1[0]               ;
 ; RGB:L1|a2[1..7]                         ; Merged with RGB:L1|a2[0]               ;
 ; RGB:L1|a3[1..7]                         ; Merged with RGB:L1|a3[0]               ;
+; \contador:reinicio                      ; Stuck at GND due to stuck port data_in ;
 ; RGB:L1|a2[0]                            ; Stuck at VCC due to stuck port data_in ;
 ; RGB:L1|Divisor:D2|cuenta[0]             ; Merged with Divisor:D1|cuenta[0]       ;
 ; RGB:L1|Divisor:D1|cuenta[0]             ; Merged with Divisor:D1|cuenta[0]       ;
@@ -334,26 +339,30 @@ Encoding Type:  One-Hot
 ; RGB:L1|Divisor:D1|cuenta[11..27]        ; Lost fanout                            ;
 ; RGB:L1|Divisor:D2|cuenta[24..27]        ; Lost fanout                            ;
 ; Divisor:D1|cuenta[17..27]               ; Lost fanout                            ;
-; Total Number of Removed Registers = 141 ;                                        ;
+; Total Number of Removed Registers = 206 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                  ;
-+-----------------------+---------------------------+------------------------------------------------------------------------------------------+
-; Register name         ; Reason for Removal        ; Registers Removed due to This Register                                                   ;
-+-----------------------+---------------------------+------------------------------------------------------------------------------------------+
-; Buzzer:B1|cont_do[17] ; Lost Fanouts              ; Buzzer:B1|cont_do[16], Buzzer:B1|cont_do[15], Buzzer:B1|cont_do[14],                     ;
-;                       ;                           ; Buzzer:B1|cont_do[13], Buzzer:B1|cont_do[12], Buzzer:B1|cont_do[11],                     ;
-;                       ;                           ; Buzzer:B1|cont_do[10], Buzzer:B1|cont_do[9], Buzzer:B1|cont_do[8],                       ;
-;                       ;                           ; Buzzer:B1|cont_do[7], Buzzer:B1|cont_do[6], Buzzer:B1|cont_do[5], Buzzer:B1|cont_do[4],  ;
-;                       ;                           ; Buzzer:B1|cont_do[3], Buzzer:B1|cont_do[2], Buzzer:B1|cont_do[1], Buzzer:B1|cont_do[0]   ;
-; Motor:M1|pres_S.sm0   ; Stuck at GND              ; Motor:M1|pres_S.sm1, Motor:M1|pres_S.sm2, Motor:M1|pres_S.sm8, Motor:M1|pres_S.sm10, UD, ;
-;                       ; due to stuck port clear   ; \mueveMotor:contador[11], \mueveMotor:contador[10], \mueveMotor:contador[9],             ;
-;                       ;                           ; \mueveMotor:contador[8], \mueveMotor:contador[7]                                         ;
-; rst                   ; Stuck at GND              ; Divisor:D1|cuenta[17]                                                                    ;
-;                       ; due to stuck port data_in ;                                                                                          ;
-+-----------------------+---------------------------+------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++-----------------------+---------------------------+-----------------------------------------------------------------------------------------------+
+; Register name         ; Reason for Removal        ; Registers Removed due to This Register                                                        ;
++-----------------------+---------------------------+-----------------------------------------------------------------------------------------------+
+; decenas[0]            ; Stuck at VCC              ; unidades[24], unidades[23], unidades[22], unidades[21], unidades[20], unidades[19],           ;
+;                       ; due to stuck port aload   ; unidades[18], unidades[17], unidades[16], unidades[15], unidades[14], unidades[13],           ;
+;                       ;                           ; unidades[12], unidades[11], unidades[10], unidades[9], unidades[8], unidades[7], unidades[6], ;
+;                       ;                           ; unidades[5], unidades[4], unidades[2], unidades[1]                                            ;
+; Buzzer:B1|cont_do[17] ; Lost Fanouts              ; Buzzer:B1|cont_do[16], Buzzer:B1|cont_do[15], Buzzer:B1|cont_do[14],                          ;
+;                       ;                           ; Buzzer:B1|cont_do[13], Buzzer:B1|cont_do[12], Buzzer:B1|cont_do[11],                          ;
+;                       ;                           ; Buzzer:B1|cont_do[10], Buzzer:B1|cont_do[9], Buzzer:B1|cont_do[8],                            ;
+;                       ;                           ; Buzzer:B1|cont_do[7], Buzzer:B1|cont_do[6], Buzzer:B1|cont_do[5], Buzzer:B1|cont_do[4],       ;
+;                       ;                           ; Buzzer:B1|cont_do[3], Buzzer:B1|cont_do[2], Buzzer:B1|cont_do[1], Buzzer:B1|cont_do[0]        ;
+; Motor:M1|pres_S.sm0   ; Stuck at GND              ; Motor:M1|pres_S.sm1, Motor:M1|pres_S.sm2, Motor:M1|pres_S.sm8, UD,                            ;
+;                       ; due to stuck port clear   ; \mueveMotor:contador[11], \mueveMotor:contador[10], \mueveMotor:contador[9],                  ;
+;                       ;                           ; \mueveMotor:contador[8], \mueveMotor:contador[7]                                              ;
+; rst                   ; Stuck at GND              ; Divisor:D1|cuenta[17]                                                                         ;
+;                       ; due to stuck port data_in ;                                                                                               ;
++-----------------------+---------------------------+-----------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -478,17 +487,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 13                          ;
+; boundary_port         ; 29                          ;
 ; cycloneiii_ff         ; 162                         ;
 ;     ENA               ; 32                          ;
 ;     ENA SCLR          ; 66                          ;
 ;     plain             ; 64                          ;
-; cycloneiii_lcell_comb ; 264                         ;
+; cycloneiii_lcell_comb ; 265                         ;
 ;     arith             ; 148                         ;
 ;         2 data inputs ; 135                         ;
 ;         3 data inputs ; 13                          ;
-;     normal            ; 116                         ;
-;         0 data inputs ; 1                           ;
+;     normal            ; 117                         ;
+;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 12                          ;
 ;         2 data inputs ; 23                          ;
 ;         3 data inputs ; 19                          ;
@@ -514,7 +523,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Dec 13 23:18:29 2021
+    Info: Processing started: Tue Dec 14 21:36:47 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PuenteElevadizo -c PuenteElevadizo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -528,7 +537,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file sonicos
     Info (12022): Found design unit 1: sonicos-behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/sonicos.vhd Line: 17
     Info (12023): Found entity 1: sonicos File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/sonicos.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file puenteelevadizo.vhd
-    Info (12022): Found design unit 1: PuenteElevadizo-behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 27
+    Info (12022): Found design unit 1: PuenteElevadizo-behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 31
     Info (12023): Found entity 1: PuenteElevadizo File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file rgb.vhd
     Info (12022): Found design unit 1: RGB-Behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd Line: 16
@@ -539,38 +548,65 @@ Info (12021): Found 2 design units, including 1 entities, in source file buzzer.
 Info (12021): Found 2 design units, including 1 entities, in source file motor.vhd
     Info (12022): Found design unit 1: Motor-behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Motor.vhd Line: 15
     Info (12023): Found entity 1: Motor File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Motor.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file display.vhd
+    Info (12022): Found design unit 1: Display-behavioral File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Display.vhd Line: 14
+    Info (12023): Found entity 1: Display File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Display.vhd Line: 5
 Info (12127): Elaborating entity "PuenteElevadizo" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at PuenteElevadizo.vhd(79): object "distanciaSalida" assigned a value but never read File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 79
-Warning (10540): VHDL Signal Declaration warning at PuenteElevadizo.vhd(80): used explicit default value for signal "inicio" because signal was never assigned a value File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 80
-Warning (10540): VHDL Signal Declaration warning at PuenteElevadizo.vhd(86): used explicit default value for signal "FH" because signal was never assigned a value File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 86
-Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(126): signal "reloj" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 126
-Info (12128): Elaborating entity "Buzzer" for hierarchy "Buzzer:B1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 95
+Warning (10540): VHDL Signal Declaration warning at PuenteElevadizo.vhd(95): used explicit default value for signal "inicio" because signal was never assigned a value File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 95
+Warning (10540): VHDL Signal Declaration warning at PuenteElevadizo.vhd(105): used explicit default value for signal "FH" because signal was never assigned a value File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 105
+Warning (10036): Verilog HDL or VHDL warning at PuenteElevadizo.vhd(109): object "senalEntrada" assigned a value but never read File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 109
+Warning (10036): Verilog HDL or VHDL warning at PuenteElevadizo.vhd(110): object "senalSalida" assigned a value but never read File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 110
+Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(133): inferring latch(es) for signal or variable "reinicioContador", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 133
+Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(146): inferring latch(es) for signal or variable "inicioContador", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(157): signal "reloj" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 157
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(177): signal "reinicioContador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 177
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(178): signal "inicioContador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 178
+Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(176): inferring latch(es) for signal or variable "inicio", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 176
+Info (10041): Inferred latch for "contador:inicio" at PuenteElevadizo.vhd(180) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 180
+Info (12128): Elaborating entity "Buzzer" for hierarchy "Buzzer:B1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 120
 Warning (10492): VHDL Process Statement warning at Buzzer.vhd(50): signal "cont_la" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Buzzer.vhd Line: 50
 Warning (10492): VHDL Process Statement warning at Buzzer.vhd(52): signal "cont_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Buzzer.vhd Line: 52
-Info (12128): Elaborating entity "sonicos" for hierarchy "sonicos:S1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 97
-Info (12128): Elaborating entity "RGB" for hierarchy "RGB:L1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 100
+Info (12128): Elaborating entity "sonicos" for hierarchy "sonicos:S1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 122
+Info (12128): Elaborating entity "RGB" for hierarchy "RGB:L1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 125
 Info (12128): Elaborating entity "Divisor" for hierarchy "RGB:L1|Divisor:D1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd Line: 43
 Info (12128): Elaborating entity "Divisor" for hierarchy "RGB:L1|Divisor:D2" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd Line: 44
 Info (12128): Elaborating entity "PWM" for hierarchy "RGB:L1|PWM:P1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd Line: 45
-Info (12128): Elaborating entity "Divisor" for hierarchy "Divisor:D1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 102
-Info (12128): Elaborating entity "Motor" for hierarchy "Motor:M1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 103
+Info (12128): Elaborating entity "Divisor" for hierarchy "Divisor:D1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 127
+Info (12128): Elaborating entity "Motor" for hierarchy "Motor:M1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 128
+Info (12128): Elaborating entity "Display" for hierarchy "Display:C1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 130
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "mot[0]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
     Warning (13410): Pin "mot[1]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
     Warning (13410): Pin "mot[2]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
     Warning (13410): Pin "mot[3]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
+    Warning (13410): Pin "segmento_unid[0]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[1]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[2]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[3]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[4]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[5]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[6]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_unid[7]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
+    Warning (13410): Pin "segmento_dec[0]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[1]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[2]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[3]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[4]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[5]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[6]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
+    Warning (13410): Pin "segmento_dec[7]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 63 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 303 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 319 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 10 output pins
+    Info (21059): Implemented 26 output pins
     Info (21061): Implemented 290 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Mon Dec 13 23:18:43 2021
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Tue Dec 14 21:37:06 2021
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:31
 
 

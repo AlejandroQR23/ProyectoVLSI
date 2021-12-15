@@ -10,6 +10,10 @@ entity PuenteElevadizo is
 		buzz   : out std_logic;
 		mot  : out std_logic_vector(3 downto 0);
 		
+		-- Display de 7 segmentos
+		segmento_unid : out std_logic_vector(7 downto 0);
+		segmento_dec : out std_logic_vector(7 downto 0);
+		
 		-- Led RGB
 		led_red : out std_logic;
 		led_green : out std_logic;
@@ -60,6 +64,16 @@ architecture behavioral of PuenteElevadizo is
 		);
 	end component;
 	
+	-- Display para el contador
+	component Display is
+		port(
+			unidades : integer;
+			decenas  : integer;
+			segmento_unid : out std_logic_vector(7 downto 0);
+			segmento_dec : out std_logic_vector(7 downto 0)
+		);
+	end component;
+	
 	component Divisor is
 		Generic 	( N : integer := 24);
 		Port		( clk : in std_logic;
@@ -75,9 +89,14 @@ architecture behavioral of PuenteElevadizo is
 				);
 	end component;
 	
+	-- Ultrasonicos
 	signal distanciaEntrada : unsigned(7 downto 0);
 	signal distanciaSalida  : unsigned(7 downto 0);
 	signal inicio				: std_logic := '0';
+	
+	-- Contador
+	signal unidades : integer := 0;
+	signal decenas : integer := 0;
 	
 	-- Motor
 	signal reloj : std_logic;
@@ -85,9 +104,15 @@ architecture behavioral of PuenteElevadizo is
 	signal rst : std_logic;
 	signal FH : std_logic_vector(1 downto 0) := "01";
 	
+	-- Senales
 	signal senal : integer;
+	signal senalEntrada : std_logic := '0';
+	signal senalSalida  : std_logic := '0';
+	signal reinicioContador : std_logic := '0';
+	signal inicioContador : std_logic   := '0';
 	
-	constant distanciaDeteccion : unsigned(7 downto 0)  := X"0A";	  			 -- distancia a la que se detecta un objeto = 2cm
+	-- Constantes
+	constant distanciaDeteccion : unsigned(7 downto 0)  := X"0A";	  			 -- distancia a la que se detecta un objeto = 10cm
 	constant pasosMax				 : std_logic_vector(11 downto 0) := X"7D0";   -- pasos que dara el motor = 2000
 	
 begin
@@ -102,24 +127,30 @@ begin
 	D1 : divisor generic map (17) port map (clk, reloj);
 	M1 : Motor port map (reloj, UD, rst, FH, mot);
 	
+	C1 : display port map(unidades, decenas, segmento_unid, segmento_dec);
+	
 	-- Detecta entrada de un objeto
 	entraObjeto : process(distanciaEntrada)
 	begin
 		if distanciaEntrada <= distanciaDeteccion then
 			senal <= 1;
+			senalEntrada <= '1';
+			reinicioContador <= '1';
 		else
 			senal <= 2;
+			senalEntrada <= '0';
 		end if;
 	end process;
 	
 	-- Detecta salida de un objeto
---	saleObjeto : process(distanciaSalida)
---	begin
---		if distanciaSalida < distanciaDeteccion then
---			senal <= 0;
---		end if;
---	end process;
+	saleObjeto : process(distanciaSalida)
+	begin
+		if distanciaSalida <= distanciaDeteccion then
+			inicioContador <= '1';
+		end if;
+	end process;
 
+	-- Mueve el motor para abrir o cerrar el puente
 	mueveMotor : process(clk, UD, rst)
 		variable contador : std_logic_vector(11 downto 0) := X"000";
 	begin
@@ -139,6 +170,31 @@ begin
 		
 		end if;
 	end process;
+	
+	
+	-- Cuenta 10 segundos luego de que el sensor detecta una salida de objeto
+	contador : process(reloj) is
+		variable reinicio : std_logic := reinicioContador;
+		variable inicio   : std_logic := inicioContador; 
+	begin
+		if(inicio = '1' and reinicio = '0') then
+			if rising_edge(reloj) then
+				if unidades = 9 then
+					unidades <= 0;
+					decenas <= decenas + 1;
+				elsif (decenas = 1 and unidades = 0) then
+					reinicio := '1';
+					senalSalida <= '1';
+				else
+					unidades <= unidades + 1;
+				end if;
+			end if;
+		elsif (reinicio = '1') then
+			inicio := '0';
+			decenas <= 0;
+			unidades <= 0;
+		end if;
+	end process contador;
 
 end behavioral;
 

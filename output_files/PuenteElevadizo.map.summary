@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Mon Dec 13 23:18:43 2021
+Analysis & Synthesis Status : Successful - Tue Dec 14 21:37:06 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PuenteElevadizo
 Top-level Entity Name : PuenteElevadizo
@@ -7,7 +7,7 @@ Total logic elements : 282
     Total combinational functions : 263
     Dedicated logic registers : 162
 Total registers : 162
-Total pins : 13
+Total pins : 29
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
