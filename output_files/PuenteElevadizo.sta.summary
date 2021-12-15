@@ -3,111 +3,267 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -2.943
-TNS   : -294.613
+Slack : -3.004
+TNS   : -385.707
+
+Type  : Slow 1200mV 85C Model Setup 'sonicos:S2|sal_cm[1]'
+Slack : -2.922
+TNS   : -5.796
+
+Type  : Slow 1200mV 85C Model Setup 'inicioContador'
+Slack : -2.620
+TNS   : -9.405
+
+Type  : Slow 1200mV 85C Model Setup 'Divisor:D2|cuenta[24]'
+Slack : -2.072
+TNS   : -6.832
 
 Type  : Slow 1200mV 85C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -1.915
-TNS   : -10.146
+Slack : -1.882
+TNS   : -10.472
 
 Type  : Slow 1200mV 85C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -1.596
-TNS   : -1.596
+Slack : -0.171
+TNS   : -0.509
+
+Type  : Slow 1200mV 85C Model Hold 'sonicos:S2|sal_cm[1]'
+Slack : -0.104
+TNS   : -0.104
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
 Slack : 0.341
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.357
+Slack : 0.375
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Divisor:D2|cuenta[24]'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'inicioContador'
+Slack : 0.698
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 1.787
+Slack : 0.753
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'sonicos:S2|sal_cm[1]'
+Slack : -2.683
+TNS   : -2.683
+
+Type  : Slow 1200mV 85C Model Recovery 'Divisor:D2|cuenta[24]'
+Slack : -0.746
+TNS   : -2.958
+
+Type  : Slow 1200mV 85C Model Removal 'Divisor:D2|cuenta[24]'
+Slack : 0.702
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'sonicos:S2|sal_cm[1]'
+Slack : 1.999
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -153.000
+TNS   : -201.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
 TNS   : -11.000
 
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Divisor:D2|cuenta[24]'
+Slack : -1.000
+TNS   : -4.000
+
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RGB:L1|Divisor:D2|cuenta[23]'
 Slack : -1.000
-TNS   : -1.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sonicos:S2|sal_cm[1]'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'inicioContador'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'sonicos:S2|sal_cm[1]'
+Slack : -2.598
+TNS   : -5.131
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -2.603
-TNS   : -252.592
+Slack : -2.580
+TNS   : -325.022
+
+Type  : Slow 1200mV 0C Model Setup 'inicioContador'
+Slack : -2.227
+TNS   : -8.025
+
+Type  : Slow 1200mV 0C Model Setup 'Divisor:D2|cuenta[24]'
+Slack : -1.865
+TNS   : -6.011
 
 Type  : Slow 1200mV 0C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -1.592
-TNS   : -7.803
+Slack : -1.575
+TNS   : -8.110
 
 Type  : Slow 1200mV 0C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -1.340
-TNS   : -1.340
+Slack : -0.150
+TNS   : -0.446
+
+Type  : Slow 1200mV 0C Model Hold 'sonicos:S2|sal_cm[1]'
+Slack : -0.096
+TNS   : -0.096
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.296
+Slack : 0.295
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.364
+Slack : 0.334
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'Divisor:D2|cuenta[24]'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'inicioContador'
+Slack : 0.658
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 1.613
+Slack : 0.768
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'sonicos:S2|sal_cm[1]'
+Slack : -2.360
+TNS   : -2.360
+
+Type  : Slow 1200mV 0C Model Recovery 'Divisor:D2|cuenta[24]'
+Slack : -0.591
+TNS   : -2.288
+
+Type  : Slow 1200mV 0C Model Removal 'Divisor:D2|cuenta[24]'
+Slack : 0.592
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'sonicos:S2|sal_cm[1]'
+Slack : 1.851
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -153.000
+TNS   : -201.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
 TNS   : -11.000
 
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Divisor:D2|cuenta[24]'
+Slack : -1.000
+TNS   : -4.000
+
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D2|cuenta[23]'
 Slack : -1.000
-TNS   : -1.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sonicos:S2|sal_cm[1]'
+Slack : 0.443
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'inicioContador'
+Slack : 0.464
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'sonicos:S2|sal_cm[1]'
+Slack : -1.450
+TNS   : -2.668
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.198
-TNS   : -102.465
+Slack : -1.295
+TNS   : -138.189
+
+Type  : Fast 1200mV 0C Model Setup 'inicioContador'
+Slack : -1.119
+TNS   : -3.742
+
+Type  : Fast 1200mV 0C Model Setup 'Divisor:D2|cuenta[24]'
+Slack : -0.887
+TNS   : -2.628
 
 Type  : Fast 1200mV 0C Model Setup 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : -0.618
-TNS   : -1.688
+Slack : -0.599
+TNS   : -1.629
 
 Type  : Fast 1200mV 0C Model Setup 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : -0.483
-TNS   : -0.483
+Slack : 0.162
+TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
-Slack : 0.129
+Type  : Fast 1200mV 0C Model Hold 'sonicos:S2|sal_cm[1]'
+Slack : -0.029
+TNS   : -0.029
+
+Type  : Fast 1200mV 0C Model Hold 'Divisor:D2|cuenta[24]'
+Slack : 0.167
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
 Slack : 0.178
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'RGB:L1|Divisor:D1|cuenta[10]'
+Slack : 0.195
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'inicioContador'
+Slack : 0.301
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Hold 'RGB:L1|Divisor:D2|cuenta[23]'
-Slack : 1.014
+Slack : 0.553
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'sonicos:S2|sal_cm[1]'
+Slack : -1.345
+TNS   : -1.345
+
+Type  : Fast 1200mV 0C Model Recovery 'Divisor:D2|cuenta[24]'
+Slack : -0.298
+TNS   : -1.189
+
+Type  : Fast 1200mV 0C Model Removal 'Divisor:D2|cuenta[24]'
+Slack : 0.390
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'sonicos:S2|sal_cm[1]'
+Slack : 1.394
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -163.889
+TNS   : -214.179
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D1|cuenta[10]'
 Slack : -1.000
 TNS   : -11.000
 
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Divisor:D2|cuenta[24]'
+Slack : -1.000
+TNS   : -4.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RGB:L1|Divisor:D2|cuenta[23]'
 Slack : -1.000
-TNS   : -1.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inicioContador'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sonicos:S2|sal_cm[1]'
+Slack : 0.404
+TNS   : 0.000
 
 ------------------------------------------------------------

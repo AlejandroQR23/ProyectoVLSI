@@ -8,6 +8,54 @@
 					"strict" : false
 				},
 				{
+					"name" : "segmento_unid[2]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[4]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[7]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[1]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[2]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[4]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[6]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_dec[7]",
+					"strict" : false
+				},
+				{
 					"name" : "led_red",
 					"strict" : false
 				},
