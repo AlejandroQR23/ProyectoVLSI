@@ -8,6 +8,26 @@
 					"strict" : false
 				},
 				{
+					"name" : "mot[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mot[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mot[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mot[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[1]",
+					"strict" : false
+				},
+				{
 					"name" : "segmento_unid[2]",
 					"strict" : false
 				},
@@ -21,6 +41,10 @@
 				},
 				{
 					"name" : "segmento_unid[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmento_unid[6]",
 					"strict" : false
 				},
 				{

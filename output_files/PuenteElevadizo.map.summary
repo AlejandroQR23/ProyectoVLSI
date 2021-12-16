@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Wed Dec 15 01:29:42 2021
+Analysis & Synthesis Status : Successful - Thu Dec 16 00:35:08 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PuenteElevadizo
 Top-level Entity Name : PuenteElevadizo
 Family : Cyclone IV E
-Total logic elements : 403
-    Total combinational functions : 375
-    Dedicated logic registers : 216
-Total registers : 216
+Total logic elements : 596
+    Total combinational functions : 567
+    Dedicated logic registers : 249
+Total registers : 249
 Total pins : 29
 Total virtual pins : 0
 Total memory bits : 0

@@ -1,5 +1,5 @@
 Flow report for PuenteElevadizo
-Wed Dec 15 01:30:01 2021
+Thu Dec 16 00:35:34 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Dec 15 01:29:56 2021       ;
+; Flow Status                        ; Successful - Thu Dec 16 00:35:27 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PuenteElevadizo                             ;
 ; Top-level Entity Name              ; PuenteElevadizo                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 388 / 6,272 ( 6 % )                         ;
-;     Total combinational functions  ; 375 / 6,272 ( 6 % )                         ;
-;     Dedicated logic registers      ; 216 / 6,272 ( 3 % )                         ;
-; Total registers                    ; 216                                         ;
+; Total logic elements               ; 576 / 6,272 ( 9 % )                         ;
+;     Total combinational functions  ; 568 / 6,272 ( 9 % )                         ;
+;     Dedicated logic registers      ; 249 / 6,272 ( 4 % )                         ;
+; Total registers                    ; 249                                         ;
 ; Total pins                         ; 29 / 92 ( 32 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                         ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/15/2021 01:29:24 ;
+; Start date & time ; 12/16/2021 00:34:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PuenteElevadizo     ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 160744708501501.163955336407536        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 158545685245949.163963648915752        ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -89,11 +89,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4782 MB             ; 00:00:30                           ;
-; Fitter               ; 00:00:10     ; 1.0                     ; 5501 MB             ; 00:00:11                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4678 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 4770 MB             ; 00:00:03                           ;
-; Total                ; 00:00:33     ; --                      ; --                  ; 00:00:45                           ;
+; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 4775 MB             ; 00:00:31                           ;
+; Fitter               ; 00:00:13     ; 1.0                     ; 5507 MB             ; 00:00:14                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4676 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4776 MB             ; 00:00:05                           ;
+; Total                ; 00:00:39     ; --                      ; --                  ; 00:00:52                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

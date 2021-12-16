@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PuenteElevadizo
-Wed Dec 15 01:29:42 2021
+Thu Dec 16 00:35:09 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -58,15 +58,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Dec 15 01:29:42 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 16 00:35:08 2021       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; PuenteElevadizo                             ;
 ; Top-level Entity Name              ; PuenteElevadizo                             ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 403                                         ;
-;     Total combinational functions  ; 375                                         ;
-;     Dedicated logic registers      ; 216                                         ;
-; Total registers                    ; 216                                         ;
+; Total logic elements               ; 596                                         ;
+;     Total combinational functions  ; 567                                         ;
+;     Dedicated logic registers      ; 249                                         ;
+; Total registers                    ; 249                                         ;
 ; Total pins                         ; 29                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -173,7 +173,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -199,20 +199,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 403       ;
+; Estimated Total logic elements              ; 596       ;
 ;                                             ;           ;
-; Total combinational functions               ; 375       ;
+; Total combinational functions               ; 567       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 107       ;
-;     -- 3 input functions                    ; 56        ;
-;     -- <=2 input functions                  ; 212       ;
+;     -- 4 input functions                    ; 177       ;
+;     -- 3 input functions                    ; 129       ;
+;     -- <=2 input functions                  ; 261       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 191       ;
-;     -- arithmetic mode                      ; 184       ;
+;     -- normal mode                          ; 342       ;
+;     -- arithmetic mode                      ; 225       ;
 ;                                             ;           ;
-; Total registers                             ; 216       ;
-;     -- Dedicated logic registers            ; 216       ;
+; Total registers                             ; 249       ;
+;     -- Dedicated logic registers            ; 249       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 29        ;
@@ -220,9 +220,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 198       ;
-; Total fan-out                               ; 1680      ;
-; Average fan-out                             ; 2.59      ;
+; Maximum fan-out                             ; 181       ;
+; Total fan-out                               ; 2407      ;
+; Average fan-out                             ; 2.75      ;
 +---------------------------------------------+-----------+
 
 
@@ -231,18 +231,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name     ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-----------------+--------------+
-; |PuenteElevadizo           ; 375 (26)            ; 216 (4)                   ; 0           ; 0            ; 0       ; 0         ; 29   ; 0            ; |PuenteElevadizo                   ; PuenteElevadizo ; work         ;
-;    |Buzzer:B1|             ; 71 (71)             ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Buzzer:B1         ; Buzzer          ; work         ;
-;    |Display:C1|            ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Display:C1        ; Display         ; work         ;
+; |PuenteElevadizo           ; 567 (204)           ; 249 (48)                  ; 0           ; 0            ; 0       ; 0         ; 29   ; 0            ; |PuenteElevadizo                   ; PuenteElevadizo ; work         ;
+;    |Buzzer:B1|             ; 37 (37)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Buzzer:B1         ; Buzzer          ; work         ;
+;    |Display:C1|            ; 26 (26)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Display:C1        ; Display         ; work         ;
+;    |Divisor:D1|            ; 17 (17)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Divisor:D1        ; Divisor         ; work         ;
 ;    |Divisor:D2|            ; 25 (25)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Divisor:D2        ; Divisor         ; work         ;
-;    |RGB:L1|                ; 56 (1)              ; 16 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1            ; RGB             ; work         ;
+;    |Motor:M1|              ; 9 (9)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|Motor:M1          ; Motor           ; work         ;
+;    |RGB:L1|                ; 57 (2)              ; 16 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1            ; RGB             ; work         ;
 ;       |Divisor:D1|         ; 10 (10)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1|Divisor:D1 ; Divisor         ; work         ;
 ;       |Divisor:D2|         ; 23 (23)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1|Divisor:D2 ; Divisor         ; work         ;
 ;       |PWM:P1|             ; 11 (11)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1|PWM:P1     ; PWM             ; work         ;
 ;       |PWM:P2|             ; 10 (10)             ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1|PWM:P2     ; PWM             ; work         ;
 ;       |PWM:P3|             ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|RGB:L1|PWM:P3     ; PWM             ; work         ;
-;    |sonicos:S1|            ; 97 (97)             ; 68 (68)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|sonicos:S1        ; sonicos         ; work         ;
-;    |sonicos:S2|            ; 97 (97)             ; 68 (68)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|sonicos:S2        ; sonicos         ; work         ;
+;    |sonicos:S1|            ; 96 (96)             ; 68 (68)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|sonicos:S1        ; sonicos         ; work         ;
+;    |sonicos:S2|            ; 96 (96)             ; 68 (68)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PuenteElevadizo|sonicos:S2        ; sonicos         ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -274,8 +276,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+---------------------+------------------------+
 ; senal[0]                                           ; GND                 ; yes                    ;
 ; senal[1]                                           ; LessThan1           ; yes                    ;
+; UD                                                 ; GND                 ; yes                    ;
 ; inicioContador                                     ; inicioContador      ; yes                    ;
-; Number of user-specified and inferred latches = 3  ;                     ;                        ;
+; reinicioContador                                   ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
 +----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -285,10 +289,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------+----------------------------------------+
 ; Register name                           ; Reason for Removal                     ;
 +-----------------------------------------+----------------------------------------+
-; rst                                     ; Stuck at GND due to stuck port data_in ;
 ; decenas[1..9,11..31]                    ; Merged with decenas[10]                ;
-; unidades[1,2,4..31]                     ; Merged with decenas[10]                ;
-; unidades[3]                             ; Merged with unidades[0]                ;
 ; RGB:L1|PWM:P2|cuenta[7]                 ; Merged with RGB:L1|PWM:P1|cuenta[7]    ;
 ; RGB:L1|PWM:P3|cuenta[7]                 ; Merged with RGB:L1|PWM:P1|cuenta[7]    ;
 ; RGB:L1|PWM:P2|cuenta[6]                 ; Merged with RGB:L1|PWM:P1|cuenta[6]    ;
@@ -308,48 +309,48 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; RGB:L1|a1[1..7]                         ; Merged with RGB:L1|a1[0]               ;
 ; RGB:L1|a2[1..7]                         ; Merged with RGB:L1|a2[0]               ;
 ; RGB:L1|a3[1..7]                         ; Merged with RGB:L1|a3[0]               ;
+; RGB:L1|Divisor:D1|cuenta[0]             ; Merged with Divisor:D2|cuenta[0]       ;
 ; RGB:L1|Divisor:D2|cuenta[0]             ; Merged with Divisor:D2|cuenta[0]       ;
 ; Divisor:D1|cuenta[0]                    ; Merged with Divisor:D2|cuenta[0]       ;
-; RGB:L1|Divisor:D1|cuenta[0]             ; Merged with Divisor:D2|cuenta[0]       ;
-; RGB:L1|Divisor:D1|cuenta[1]             ; Merged with Divisor:D2|cuenta[1]       ;
 ; Divisor:D1|cuenta[1]                    ; Merged with Divisor:D2|cuenta[1]       ;
+; RGB:L1|Divisor:D1|cuenta[1]             ; Merged with Divisor:D2|cuenta[1]       ;
 ; RGB:L1|Divisor:D2|cuenta[1]             ; Merged with Divisor:D2|cuenta[1]       ;
+; Divisor:D1|cuenta[2]                    ; Merged with Divisor:D2|cuenta[2]       ;
 ; RGB:L1|Divisor:D1|cuenta[2]             ; Merged with Divisor:D2|cuenta[2]       ;
 ; RGB:L1|Divisor:D2|cuenta[2]             ; Merged with Divisor:D2|cuenta[2]       ;
-; Divisor:D1|cuenta[2]                    ; Merged with Divisor:D2|cuenta[2]       ;
-; RGB:L1|Divisor:D1|cuenta[3]             ; Merged with Divisor:D2|cuenta[3]       ;
 ; RGB:L1|Divisor:D2|cuenta[3]             ; Merged with Divisor:D2|cuenta[3]       ;
 ; Divisor:D1|cuenta[3]                    ; Merged with Divisor:D2|cuenta[3]       ;
+; RGB:L1|Divisor:D1|cuenta[3]             ; Merged with Divisor:D2|cuenta[3]       ;
+; RGB:L1|Divisor:D2|cuenta[4]             ; Merged with Divisor:D2|cuenta[4]       ;
 ; RGB:L1|Divisor:D1|cuenta[4]             ; Merged with Divisor:D2|cuenta[4]       ;
 ; Divisor:D1|cuenta[4]                    ; Merged with Divisor:D2|cuenta[4]       ;
-; RGB:L1|Divisor:D2|cuenta[4]             ; Merged with Divisor:D2|cuenta[4]       ;
-; Divisor:D1|cuenta[5]                    ; Merged with Divisor:D2|cuenta[5]       ;
-; RGB:L1|Divisor:D2|cuenta[5]             ; Merged with Divisor:D2|cuenta[5]       ;
 ; RGB:L1|Divisor:D1|cuenta[5]             ; Merged with Divisor:D2|cuenta[5]       ;
-; Divisor:D1|cuenta[6]                    ; Merged with Divisor:D2|cuenta[6]       ;
+; RGB:L1|Divisor:D2|cuenta[5]             ; Merged with Divisor:D2|cuenta[5]       ;
+; Divisor:D1|cuenta[5]                    ; Merged with Divisor:D2|cuenta[5]       ;
 ; RGB:L1|Divisor:D1|cuenta[6]             ; Merged with Divisor:D2|cuenta[6]       ;
 ; RGB:L1|Divisor:D2|cuenta[6]             ; Merged with Divisor:D2|cuenta[6]       ;
-; Divisor:D1|cuenta[7]                    ; Merged with Divisor:D2|cuenta[7]       ;
+; Divisor:D1|cuenta[6]                    ; Merged with Divisor:D2|cuenta[6]       ;
 ; RGB:L1|Divisor:D2|cuenta[7]             ; Merged with Divisor:D2|cuenta[7]       ;
 ; RGB:L1|Divisor:D1|cuenta[7]             ; Merged with Divisor:D2|cuenta[7]       ;
+; Divisor:D1|cuenta[7]                    ; Merged with Divisor:D2|cuenta[7]       ;
 ; RGB:L1|Divisor:D1|cuenta[8]             ; Merged with Divisor:D2|cuenta[8]       ;
 ; RGB:L1|Divisor:D2|cuenta[8]             ; Merged with Divisor:D2|cuenta[8]       ;
 ; Divisor:D1|cuenta[8]                    ; Merged with Divisor:D2|cuenta[8]       ;
 ; RGB:L1|Divisor:D2|cuenta[9]             ; Merged with Divisor:D2|cuenta[9]       ;
 ; Divisor:D1|cuenta[9]                    ; Merged with Divisor:D2|cuenta[9]       ;
 ; RGB:L1|Divisor:D1|cuenta[9]             ; Merged with Divisor:D2|cuenta[9]       ;
-; RGB:L1|Divisor:D2|cuenta[10]            ; Merged with Divisor:D2|cuenta[10]      ;
 ; Divisor:D1|cuenta[10]                   ; Merged with Divisor:D2|cuenta[10]      ;
-; Divisor:D1|cuenta[11]                   ; Merged with Divisor:D2|cuenta[11]      ;
+; RGB:L1|Divisor:D2|cuenta[10]            ; Merged with Divisor:D2|cuenta[10]      ;
 ; RGB:L1|Divisor:D2|cuenta[11]            ; Merged with Divisor:D2|cuenta[11]      ;
+; Divisor:D1|cuenta[11]                   ; Merged with Divisor:D2|cuenta[11]      ;
 ; Divisor:D1|cuenta[12]                   ; Merged with Divisor:D2|cuenta[12]      ;
 ; RGB:L1|Divisor:D2|cuenta[12]            ; Merged with Divisor:D2|cuenta[12]      ;
-; RGB:L1|Divisor:D2|cuenta[13]            ; Merged with Divisor:D2|cuenta[13]      ;
 ; Divisor:D1|cuenta[13]                   ; Merged with Divisor:D2|cuenta[13]      ;
-; Divisor:D1|cuenta[14]                   ; Merged with Divisor:D2|cuenta[14]      ;
+; RGB:L1|Divisor:D2|cuenta[13]            ; Merged with Divisor:D2|cuenta[13]      ;
 ; RGB:L1|Divisor:D2|cuenta[14]            ; Merged with Divisor:D2|cuenta[14]      ;
-; Divisor:D1|cuenta[15]                   ; Merged with Divisor:D2|cuenta[15]      ;
+; Divisor:D1|cuenta[14]                   ; Merged with Divisor:D2|cuenta[14]      ;
 ; RGB:L1|Divisor:D2|cuenta[15]            ; Merged with Divisor:D2|cuenta[15]      ;
+; Divisor:D1|cuenta[15]                   ; Merged with Divisor:D2|cuenta[15]      ;
 ; Divisor:D1|cuenta[16]                   ; Merged with Divisor:D2|cuenta[16]      ;
 ; RGB:L1|Divisor:D2|cuenta[16]            ; Merged with Divisor:D2|cuenta[16]      ;
 ; RGB:L1|Divisor:D2|cuenta[17]            ; Merged with Divisor:D2|cuenta[17]      ;
@@ -362,42 +363,27 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; sonicos:S1|sal_unid[0]                  ; Lost fanout                            ;
 ; sonicos:S2|sal_cm[0]                    ; Lost fanout                            ;
 ; sonicos:S2|sal_unid[0]                  ; Lost fanout                            ;
-; Motor:M1|pres_S.sm0                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm1                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm2                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm3                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm4                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm5                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm6                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm7                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm8                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm9                     ; Stuck at GND due to stuck port clear   ;
-; Motor:M1|pres_S.sm10                    ; Stuck at GND due to stuck port clear   ;
-; UD                                      ; Lost fanout                            ;
-; Divisor:D1|cuenta[17]                   ; Lost fanout                            ;
-; \mueveMotor:contador[4..11]             ; Lost fanout                            ;
+; Motor:M1|pres_S.sm3                     ; Stuck at GND due to stuck port data_in ;
+; Motor:M1|pres_S.sm5                     ; Stuck at GND due to stuck port data_in ;
+; Motor:M1|pres_S.sm7                     ; Stuck at GND due to stuck port data_in ;
+; Motor:M1|pres_S.sm9                     ; Stuck at GND due to stuck port data_in ;
+; Motor:M1|pres_S.sm10                    ; Stuck at GND due to stuck port data_in ;
 ; Divisor:D1|cuenta[18..27]               ; Lost fanout                            ;
-; \mueveMotor:contador[0..3]              ; Lost fanout                            ;
 ; Divisor:D2|cuenta[25..27]               ; Lost fanout                            ;
 ; RGB:L1|Divisor:D1|cuenta[11..27]        ; Lost fanout                            ;
 ; RGB:L1|Divisor:D2|cuenta[24..27]        ; Lost fanout                            ;
-; Total Number of Removed Registers = 212 ;                                        ;
+; Total Number of Removed Registers = 160 ;                                        ;
 +-----------------------------------------+----------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                     ;
-+----------------------+---------------------------+------------------------------------------------------------------------------+
-; Register name        ; Reason for Removal        ; Registers Removed due to This Register                                       ;
-+----------------------+---------------------------+------------------------------------------------------------------------------+
-; Motor:M1|pres_S.sm0  ; Stuck at GND              ; Motor:M1|pres_S.sm1, Motor:M1|pres_S.sm2, Motor:M1|pres_S.sm8, UD,           ;
-;                      ; due to stuck port clear   ; \mueveMotor:contador[11], \mueveMotor:contador[10], \mueveMotor:contador[9], ;
-;                      ;                           ; \mueveMotor:contador[8], \mueveMotor:contador[7]                             ;
-; rst                  ; Stuck at GND              ; Divisor:D1|cuenta[17]                                                        ;
-;                      ; due to stuck port data_in ;                                                                              ;
-; sonicos:S1|sal_cm[0] ; Lost Fanouts              ; sonicos:S1|sal_unid[0]                                                       ;
-; sonicos:S2|sal_cm[0] ; Lost Fanouts              ; sonicos:S2|sal_unid[0]                                                       ;
-+----------------------+---------------------------+------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                        ;
++----------------------+--------------------+----------------------------------------+
+; Register name        ; Reason for Removal ; Registers Removed due to This Register ;
++----------------------+--------------------+----------------------------------------+
+; sonicos:S1|sal_cm[0] ; Lost Fanouts       ; sonicos:S1|sal_unid[0]                 ;
+; sonicos:S2|sal_cm[0] ; Lost Fanouts       ; sonicos:S2|sal_unid[0]                 ;
++----------------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -405,12 +391,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 216   ;
-; Number of registers using Synchronous Clear  ; 66    ;
+; Total registers                              ; 249   ;
+; Number of registers using Synchronous Clear  ; 78    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Clear ; 41    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 126   ;
+; Number of registers using Clock Enable       ; 140   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -432,16 +418,20 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros[14]     ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros[3]      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros_cent[2] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros_cent[0] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros[15]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros[4]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros_cent[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros_cent[3] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros_dece[3] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros_unid[0] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S1|centimetros_unid[2] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros_dece[3] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros_unid[2] ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S1|cuenta[15]          ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S2|cuenta[4]           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PuenteElevadizo|sonicos:S2|centimetros_unid[1] ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S1|cuenta[13]          ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |PuenteElevadizo|sonicos:S2|cuenta[1]           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |PuenteElevadizo|decenas[10]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |PuenteElevadizo|unidades[26]                   ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |PuenteElevadizo|Display:C1|segmento_unid[6]    ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |PuenteElevadizo|Display:C1|segmento_unid[3]    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -537,24 +527,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 29                          ;
-; cycloneiii_ff         ; 216                         ;
-;     CLR               ; 4                           ;
+; cycloneiii_ff         ; 249                         ;
+;     CLR               ; 39                          ;
 ;     ENA               ; 60                          ;
-;     ENA SCLR          ; 66                          ;
-;     plain             ; 86                          ;
-; cycloneiii_lcell_comb ; 378                         ;
-;     arith             ; 184                         ;
-;         2 data inputs ; 162                         ;
-;         3 data inputs ; 22                          ;
-;     normal            ; 194                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 35                          ;
-;         3 data inputs ; 34                          ;
-;         4 data inputs ; 107                         ;
+;     ENA CLR           ; 2                           ;
+;     ENA SCLR          ; 78                          ;
+;     plain             ; 70                          ;
+; cycloneiii_lcell_comb ; 571                         ;
+;     arith             ; 225                         ;
+;         2 data inputs ; 202                         ;
+;         3 data inputs ; 23                          ;
+;     normal            ; 346                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 106                         ;
+;         4 data inputs ; 177                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.79                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.88                        ;
 +-----------------------+-----------------------------+
 
 
@@ -563,7 +554,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -573,7 +564,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Dec 15 01:29:24 2021
+    Info: Processing started: Thu Dec 16 00:34:49 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PuenteElevadizo -c PuenteElevadizo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -610,8 +601,12 @@ Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(134): inf
 Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(134): inferring latch(es) for signal or variable "reinicioContador", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
 Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(134): inferring latch(es) for signal or variable "inicioContador", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
 Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(162): signal "inicioContador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 162
-Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(181): signal "senal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 181
-Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(193): signal "reloj" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 193
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(162): signal "reinicioContador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(180): signal "senal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 180
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(191): signal "senal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 191
+Warning (10492): VHDL Process Statement warning at PuenteElevadizo.vhd(193): signal "senal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 193
+Warning (10631): VHDL Process Statement warning at PuenteElevadizo.vhd(189): inferring latch(es) for signal or variable "UD", which holds its previous value in one or more paths through the process File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 189
+Info (10041): Inferred latch for "UD" at PuenteElevadizo.vhd(189) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 189
 Info (10041): Inferred latch for "inicioContador" at PuenteElevadizo.vhd(134) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
 Info (10041): Inferred latch for "reinicioContador" at PuenteElevadizo.vhd(134) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
 Info (10041): Inferred latch for "senal[0]" at PuenteElevadizo.vhd(134) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
@@ -648,7 +643,6 @@ Info (10041): Inferred latch for "senal[30]" at PuenteElevadizo.vhd(134) File: C
 Info (10041): Inferred latch for "senal[31]" at PuenteElevadizo.vhd(134) File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 134
 Info (12128): Elaborating entity "Buzzer" for hierarchy "Buzzer:B1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 120
 Warning (10492): VHDL Process Statement warning at Buzzer.vhd(50): signal "cont_la" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Buzzer.vhd Line: 50
-Warning (10492): VHDL Process Statement warning at Buzzer.vhd(52): signal "cont_do" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/Buzzer.vhd Line: 52
 Info (12128): Elaborating entity "sonicos" for hierarchy "sonicos:S1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 122
 Info (12128): Elaborating entity "RGB" for hierarchy "RGB:L1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 125
 Info (12128): Elaborating entity "Divisor" for hierarchy "RGB:L1|Divisor:D1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/RGB.vhd Line: 43
@@ -661,31 +655,56 @@ Info (12128): Elaborating entity "Divisor" for hierarchy "Divisor:D2" File: C:/U
 Warning (13012): Latch inicioContador has unsafe behavior File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 111
     Warning (13013): Ports D and ENA on the latch are fed by the same signal sonicos:S2|sal_cm[4] File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/sonicos.vhd Line: 41
 Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "decenas[10]" is converted into an equivalent circuit using register "decenas[10]~_emulated" and latch "decenas[10]~1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 164
-    Warning (13310): Register "unidades[0]" is converted into an equivalent circuit using register "unidades[0]~_emulated" and latch "unidades[0]~1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 164
-    Warning (13310): Register "decenas[0]" is converted into an equivalent circuit using register "decenas[0]~_emulated" and latch "decenas[0]~5" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 164
+    Warning (13310): Register "unidades[31]" is converted into an equivalent circuit using register "unidades[31]~_emulated" and latch "unidades[31]~1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[30]" is converted into an equivalent circuit using register "unidades[30]~_emulated" and latch "unidades[30]~5" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[29]" is converted into an equivalent circuit using register "unidades[29]~_emulated" and latch "unidades[29]~9" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[28]" is converted into an equivalent circuit using register "unidades[28]~_emulated" and latch "unidades[28]~13" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[27]" is converted into an equivalent circuit using register "unidades[27]~_emulated" and latch "unidades[27]~17" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[26]" is converted into an equivalent circuit using register "unidades[26]~_emulated" and latch "unidades[26]~21" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[25]" is converted into an equivalent circuit using register "unidades[25]~_emulated" and latch "unidades[25]~25" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[24]" is converted into an equivalent circuit using register "unidades[24]~_emulated" and latch "unidades[24]~29" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[23]" is converted into an equivalent circuit using register "unidades[23]~_emulated" and latch "unidades[23]~33" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[22]" is converted into an equivalent circuit using register "unidades[22]~_emulated" and latch "unidades[22]~37" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[21]" is converted into an equivalent circuit using register "unidades[21]~_emulated" and latch "unidades[21]~41" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[20]" is converted into an equivalent circuit using register "unidades[20]~_emulated" and latch "unidades[20]~45" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[19]" is converted into an equivalent circuit using register "unidades[19]~_emulated" and latch "unidades[19]~49" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[18]" is converted into an equivalent circuit using register "unidades[18]~_emulated" and latch "unidades[18]~53" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[17]" is converted into an equivalent circuit using register "unidades[17]~_emulated" and latch "unidades[17]~57" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[16]" is converted into an equivalent circuit using register "unidades[16]~_emulated" and latch "unidades[16]~61" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[15]" is converted into an equivalent circuit using register "unidades[15]~_emulated" and latch "unidades[15]~65" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[14]" is converted into an equivalent circuit using register "unidades[14]~_emulated" and latch "unidades[14]~69" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[13]" is converted into an equivalent circuit using register "unidades[13]~_emulated" and latch "unidades[13]~73" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[12]" is converted into an equivalent circuit using register "unidades[12]~_emulated" and latch "unidades[12]~77" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[11]" is converted into an equivalent circuit using register "unidades[11]~_emulated" and latch "unidades[11]~81" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[10]" is converted into an equivalent circuit using register "unidades[10]~_emulated" and latch "unidades[10]~85" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[9]" is converted into an equivalent circuit using register "unidades[9]~_emulated" and latch "unidades[9]~89" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[8]" is converted into an equivalent circuit using register "unidades[8]~_emulated" and latch "unidades[8]~93" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[7]" is converted into an equivalent circuit using register "unidades[7]~_emulated" and latch "unidades[7]~97" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[6]" is converted into an equivalent circuit using register "unidades[6]~_emulated" and latch "unidades[6]~101" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[5]" is converted into an equivalent circuit using register "unidades[5]~_emulated" and latch "unidades[5]~105" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[4]" is converted into an equivalent circuit using register "unidades[4]~_emulated" and latch "unidades[4]~109" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[3]" is converted into an equivalent circuit using register "unidades[3]~_emulated" and latch "unidades[3]~113" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[2]" is converted into an equivalent circuit using register "unidades[2]~_emulated" and latch "unidades[2]~117" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[1]" is converted into an equivalent circuit using register "unidades[1]~_emulated" and latch "unidades[1]~121" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "unidades[0]" is converted into an equivalent circuit using register "unidades[0]~_emulated" and latch "unidades[0]~125" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "decenas[10]" is converted into an equivalent circuit using register "decenas[10]~_emulated" and latch "decenas[10]~1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
+    Warning (13310): Register "decenas[0]" is converted into an equivalent circuit using register "decenas[0]~_emulated" and latch "decenas[0]~5" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 163
     Warning (13310): Register "senalSalida" is converted into an equivalent circuit using register "senalSalida~_emulated" and latch "senalSalida~1" File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 110
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "mot[0]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
-    Warning (13410): Pin "mot[1]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
-    Warning (13410): Pin "mot[2]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
-    Warning (13410): Pin "mot[3]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 11
     Warning (13410): Pin "segmento_unid[0]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
-    Warning (13410): Pin "segmento_unid[1]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
-    Warning (13410): Pin "segmento_unid[6]" is stuck at GND File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 14
     Warning (13410): Pin "segmento_dec[0]" is stuck at VCC File: C:/Users/pc/OneDrive/Documents/Dev/DD/ProyectoVLSI/PuenteElevadizo.vhd Line: 15
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 52 registers lost all their fanouts during netlist optimizations.
+Info (17049): 38 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 441 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 635 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 26 output pins
-    Info (21061): Implemented 412 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Wed Dec 15 01:29:42 2021
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:31
+    Info (21061): Implemented 606 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 56 warnings
+    Info: Peak virtual memory: 4775 megabytes
+    Info: Processing ended: Thu Dec 16 00:35:09 2021
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:32
 
 

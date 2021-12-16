@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Dec 15 01:29:53 2021
+Fitter Status : Successful - Thu Dec 16 00:35:23 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : PuenteElevadizo
 Top-level Entity Name : PuenteElevadizo
 Family : Cyclone IV E
 Device : EP4CE6E22C6
 Timing Models : Final
-Total logic elements : 388 / 6,272 ( 6 % )
-    Total combinational functions : 375 / 6,272 ( 6 % )
-    Dedicated logic registers : 216 / 6,272 ( 3 % )
-Total registers : 216
+Total logic elements : 576 / 6,272 ( 9 % )
+    Total combinational functions : 568 / 6,272 ( 9 % )
+    Dedicated logic registers : 249 / 6,272 ( 4 % )
+Total registers : 249
 Total pins : 29 / 92 ( 32 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )

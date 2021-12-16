@@ -100,7 +100,7 @@ architecture behavioral of PuenteElevadizo is
 	signal relojContador : std_logic;
 	
 	-- Motor
-	signal reloj : std_logic;
+	signal relojMotor : std_logic;
 	signal UD : std_logic;
 	signal rst : std_logic;
 	signal FH : std_logic_vector(1 downto 0) := "01";
@@ -113,19 +113,19 @@ architecture behavioral of PuenteElevadizo is
 	
 	-- Constantes
 	constant distanciaDeteccion : unsigned(7 downto 0)  := X"0A";	  			 -- distancia a la que se detecta un objeto = 10cm
-	constant pasosMax				 : std_logic_vector(11 downto 0) := X"7D0";   -- pasos que dara el motor = 2000
+	constant pasosMax				 : std_logic_vector(11 downto 0) := X"00A";   -- pasos que dara el motor = 2000
 	
 begin
 
 	B1 : Buzzer port map(clk, senal, buzz);
 
 	S1 : sonicos port map(clk, inicio, leftTrigger, leftEcho, distanciaEntrada);	 -- sensor de entrada
-	S2 : sonicos port map(clk, inicio, rightTrigger, rightEcho, distanciaSalida); -- sensor de salida
+	S2 : sonicos port map(clk, inicio, rightTrigger, rightEcho, distanciaSalida);  -- sensor de salida
 	
 	L1 : RGB port map(clk, senal, led_red, led_green, led_blue);
 	
-	D1 : divisor generic map (17) port map (clk, reloj);
-	M1 : Motor port map (reloj, UD, rst, FH, mot);
+	D1 : divisor generic map (17) port map (clk, relojMotor);
+	M1 : Motor port map (relojMotor, UD, rst, FH, mot);
 	
 	C1 : display port map(unidades, decenas, segmento_unid, segmento_dec);
 	D2 : divisor generic map (24) port map (clk, relojContador);
@@ -185,24 +185,35 @@ begin
 		
 	end process contador;
 	
+	-- controla la direccion del motor
+	dirigeMotor : process(UD)
+	begin
+		if(senal = 1) then
+			UD <= '1';
+		elsif(senal = 0) then
+			UD <= '0';
+		end if;
+	end process;
+	
 	-- Mueve el motor para abrir o cerrar el puente
-	mueveMotor : process(clk, UD, rst)
+	mueveMotor : process(relojMotor, UD, rst)
 		variable contador : std_logic_vector(11 downto 0) := X"000";
 	begin
-		if(reloj'event and reloj = '1') then
+		if(relojMotor'event and relojMotor = '1') then	
 			
-			if(senal = 1) then
-				UD <= '1';
+			if(rst = '0') then
+				if(senal = 1 or senal = 0) then
+					rst <= '1';
+				end if;
+			else 
+				if(contador < pasosMax) then
+					contador := contador + 1;
+				else 
+					contador := X"000";
+					rst <= '0';
+				end if;
 			end if;
 			
-			if(contador < pasosMax) then
-				contador := contador + 1;
-			else
-				contador := X"000";
-				UD <= '0';
-				rst <= '0';
-			end if;
-		
 		end if;
 	end process;
 
